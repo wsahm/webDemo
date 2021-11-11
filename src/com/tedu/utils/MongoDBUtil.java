@@ -25,12 +25,11 @@ public class MongoDBUtil {
     //需要密码认证方式连接
     public static MongoDatabase getConnect2(){
         List<ServerAddress> adds = new ArrayList<>();
-
+        List<MongoCredential> credentials = new ArrayList<>();
         //ServerAddress()两个参数分别为 服务器地址 和 端口
         ServerAddress serverAddress = new ServerAddress("localhost", 27017);
         adds.add(serverAddress);
 
-        List<MongoCredential> credentials = new ArrayList<>();
         //MongoCredential.createScramSha1Credential()三个参数分别为 用户名 数据库名称 密码
         MongoCredential mongoCredential = MongoCredential.createScramSha1Credential("testAdmin", "jt_manage", "wsahm1314".toCharArray());
         credentials.add(mongoCredential);
